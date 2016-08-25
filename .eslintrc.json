@@ -1,6 +1,7 @@
 {
     "env": {
-        "es6": true
+        "es6": true,
+        "node": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -11,6 +12,8 @@
             "error",
             4
         ],
+        "no-console": "off",
+        "no-debugger": "off",
         "linebreak-style": [
             "error",
             "windows"
