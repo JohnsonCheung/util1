@@ -1,14 +1,21 @@
 const {} = require('util')
+const mocha = require('mocha')
+const chai = require('chai')
 debugger
-const tap = require('tap')
-{   
-    const case_ay =[
+describe('macro_ay', 
+    it('normal case - excl blanket'), function () {
+
+    const cas =
         [   // case0
             'normal case - excl blanket',
             'abc{a}..df{b}dfdf{c}a', // str
             true,                   // excl_blanket
             ['a','b','c']           // exp
-        ],
+        ]
+        run_case(c)
+    }
+)
+/*
         [   // case1
             'normal case - incl blanket',
             'abc{a}..df{b}dfdf{c}a', // str
@@ -26,7 +33,8 @@ const tap = require('tap')
     function run_case (c, i) { 
         const [nm, str,excl_blanket,exp] = c
         const act = macro_ay(str,excl_blanket)
-        tap.same(act, exp, `case#(${i}) -- ${nm}`)
+        expect(act).(act, exp, `case#(${i}) -- ${nm}`)
     }
     case_ay.forEach(run_case)
-}
+})
+*/
