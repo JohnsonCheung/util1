@@ -1,0 +1,25 @@
+{
+  "name": "util1",
+  "version": "0.1.0",
+  "description": "some utility functions",
+  "main": "./lib/util1.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnsoncheung/util1.git"
+  },
+  "keywords": [
+    "utility"
+  ],
+  "author": "Johnson Cheung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnsoncheung/util1/issues"
+  },
+  "homepage": "https://github.com/johnsoncheung/util1#readme"
+}
