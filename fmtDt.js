@@ -48,5 +48,4 @@ const fmtDt1 = (() => {
 })()
 const col_w = (dta, i) => ay_maxLen(col_i(dta, i))
 const col_i = (dta, i) => dta.map(dr => String(dr[i]))
-
 module.exports = { fmtDt, fmtDt1, col_w, col_i }

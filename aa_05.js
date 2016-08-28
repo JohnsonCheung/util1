@@ -1,31 +1,29 @@
 const fs = require('fs')
-function* readdir(dir) {
-        function x(er, entries) {
-            debugger
-            if (er) return [er]
-            yield[null, entries]
-        }
-
-    fs.readdir(dir, x)
-
+const pipe = require('util1').pipe
+let it, it1
+const readdir = (dir) => fs.readdir(dir, (err, entries) => it.next([err, entries]))
+function* main(dir, cb) {
+    const [er, entries] = yield readdir(dir)
+    if (er) return cb(err)
+    debugger
+    it1 = main1(dir, entries)
+    const a = yield states(dir, entries)
+    debugger
+    const err = [], fil = [], fdr = []
+    const x_ay = stat => stat instanceof Error ? err : stat.isDirectory() ? fdr : fil
+    const x_push = (stat, i) => ay => ay.push[[entries[i], stat]]
+    const x = (stat, i) => pipe(stat, x_ay, x_push(stat, i))
+    a.forEach(x)
+    cb(null, { dir, entries, err, fil, fdr })
 }
-function* gen(dir) {
-    r = readdir(dir)
-    yield* r.next()
-    const x2 = (er, stat) => { }
-    const x1 = (entry, i) => fs.stat(dir + '/' + entry, ((er, stat) => x2()))
-    yield
-}
-const read_dirInfo = (dir) => {
-    const a = gen(dir)
-    debugger
-    let x = a.next()
-    x = a.next()
-    debugger
-    if (x.done) return x.value
-    let entries = x.value
-    a.next(entries)
-    let states = a.next()
-    debugger
+const read_dirInfo = (dir, cb) => {
+    it = main(dir, cb)
+    it.next()
 }
 module.exports = read_dirInfo
+
+const read_states = (dir, entries) => entries.map(entry => fs.stat(dir + '/' + entry, (err, stat) => it1.next(stat)))
+function* states(dir, entries) { return yield read_states(dir, entries) }
+function* main1(dir, entries) {
+    return yield read_states(dir, entries)
+}

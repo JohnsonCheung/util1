@@ -2,8 +2,8 @@ const fil = './aa_05.js'
 const read_dirInfo = require(fil)
 const is_call_back = /[01|02|03]/.test(fil)
 const fn = () => is_call_back
-    ? read_dirInfo('f:', (err, obj) => console.log(err || obj))
-    : console.log(read_dirInfo('f:'))
+    ? read_dirInfo('u:', (err, obj) => console.log(err || obj))
+    : console.log(read_dirInfo('u:'))
 console.log(fil)
 fn()
 
